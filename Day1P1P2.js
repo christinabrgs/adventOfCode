@@ -45,3 +45,31 @@ findDistanceOfLocations(input)
 
 
 
+// Part Two
+function findSimilarityScore(stringInput) {
+  const { listOne, listTwo } = parseListOfLocations(stringInput)
+  
+  // console.log(listTwo)
+  
+  const listOneSet = new Map ()
+  
+  const map = listTwo.reduce((a, b) => {
+    if (a.has(b)) {
+      let val = a.get(b)
+      a.set(b, val + 1)
+    } else {
+      a.set(b, 1)
+    }
+    return a
+  }, new Map ())
+  
+  const checkAgainstListOne = listOne.reduce((a, b) => {
+    let count = map.has(b) ? map.get(b) : 0
+    return a + (b * count)
+  }, 0)
+  
+// console.log(checkAgainstListOne)
+  
+}
+
+findSimilarityScore(input)
