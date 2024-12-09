@@ -1,3 +1,6 @@
+
+
+// Parse input and counts the amount of safe lines
 function parseStringInput (stringInput) {
   
     // parses string input into an array of array and creating a variable safeSets that will store all safe values
